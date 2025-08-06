@@ -1,6 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://cv8i511peu474"]
+[gd_scene load_steps=5 format=3 uid="uid://cv8i511peu474"]
 
 [ext_resource type="PackedScene" uid="uid://bpwu2ogfo2grc" path="res://Scenes/player.tscn" id="1_yxjom"]
+[ext_resource type="Texture2D" uid="uid://ccupsjl7ejp1f" path="res://Assets/tileset-master.png" id="2_erq31"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jj6vi"]
+texture = ExtResource("2_erq31")
+texture_region_size = Vector2i(32, 32)
+2:8/0 = 0
+2:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:8/0/physics_layer_0/angular_velocity = 0.0
+8:8/0 = 0
+8:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+8:8/0/physics_layer_0/angular_velocity = 0.0
+8:8/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_2h4ks"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_jj6vi")
 
 [node name="Game" type="Node2D"]
 
@@ -9,3 +26,8 @@
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1, -107)
 zoom = Vector2(2, 2)
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_2h4ks")
+format = 2
+layer_0/tile_data = PackedInt32Array(131071, 524288, 8, 65536, 524288, 8, 65545, 524288, 8, 65544, 524288, 8, 65543, 524288, 8, 65542, 524288, 8, 65541, 524288, 8, 65540, 524288, 8, 65539, 524288, 8, 65538, 524288, 8, 65537, 524288, 8, 131070, 524288, 8, 131069, 524288, 8, 131068, 524288, 8, 131067, 524288, 8, 131066, 524288, 8, 131065, 524288, 8, 131064, 524288, 8, 131063, 524288, 8, 131062, 524288, 8)

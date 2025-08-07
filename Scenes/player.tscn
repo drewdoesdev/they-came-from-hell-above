@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://bpwu2ogfo2grc"]
+[gd_scene load_steps=18 format=3 uid="uid://bpwu2ogfo2grc"]
 
 [ext_resource type="Texture2D" uid="uid://mvxm6p6h3m2i" path="res://Assets/zim-master.png" id="1_6ybsi"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_p0ani"]
+[ext_resource type="Script" path="res://Scripts/blaster.gd" id="3_x6tn4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uo3b4"]
 atlas = ExtResource("1_6ybsi")
@@ -88,6 +89,21 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_84efh"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7twsb"]
+atlas = ExtResource("1_6ybsi")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yyanj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7twsb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_p0ani")
 
@@ -97,8 +113,16 @@ script = ExtResource("1_p0ani")
 sprite_frames = SubResource("SpriteFrames_jq6rh")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.758684
+frame_progress = 0.217988
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_84efh")
+
+[node name="Blaster" type="Node2D" parent="."]
+position = Vector2(0, 6)
+script = ExtResource("3_x6tn4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Blaster"]
+position = Vector2(0, -18)
+sprite_frames = SubResource("SpriteFrames_yyanj")

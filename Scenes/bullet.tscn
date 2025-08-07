@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://o65w7rpfcu8x"]
+
+[ext_resource type="Script" path="res://Scripts/bullet.gd" id="1_dbasa"]
+
+[node name="bullet" type="Area2D"]
+script = ExtResource("1_dbasa")

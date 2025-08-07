@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://ganastqj4sd"]
+
+[ext_resource type="Script" path="res://Scripts/blaster-container.gd" id="1_tm4mv"]
+[ext_resource type="Texture2D" uid="uid://mvxm6p6h3m2i" path="res://Assets/zim-master.png" id="2_lwvpu"]
+[ext_resource type="Script" path="res://Scripts/blaster.gd" id="3_hg8ck"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7twsb"]
+atlas = ExtResource("2_lwvpu")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yyanj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7twsb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="BlasterContainer" type="Node2D"]
+position = Vector2(0, 6)
+script = ExtResource("1_tm4mv")
+
+[node name="Blaster" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -18)
+sprite_frames = SubResource("SpriteFrames_yyanj")
+script = ExtResource("3_hg8ck")
